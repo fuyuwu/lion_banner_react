@@ -6,8 +6,8 @@ class App extends Component {
   render() {
     return (
       <Banner
-        openAtStart={true}
-        autoToggle={false} // number || boolean (幾秒開合 || 是否自動開關)
+        openAtStart={false}
+        autoToggle={3000} // number || boolean (幾秒開合 || 是否自動開關)
         button={{
           closeText: "收合",
           openText: "展開",

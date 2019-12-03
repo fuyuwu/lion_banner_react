@@ -5,8 +5,8 @@ import Img from "./imgs/banner.png";
 
 class Banner extends Component {
   static defaultProps = {
-    openAtStart: true,
-    autoToggle: 3000,
+    openAtStart: true, // [boolean] true | false
+    autoToggle: 3000, // [boolean|number] true | false | 3000
     button: {
       closeText: "收合",
       openText: "展開",
@@ -52,17 +52,23 @@ class Banner extends Component {
     }, this.state.transTimes);
   };
 
+  autoToggle = () => {
+    let autoToggle = this.props.autoToggle;
+    console.log(autoToggle);
+    if (typeof autoToggle === "number") {
+      setTimeout(() => {
+        this.toggle();
+      }, autoToggle);
+    }
+  };
+
   componentWillUnmount() {
     clearTimeout(this.whenTrans);
   }
 
   //設定autoToggle
   componentDidMount() {
-    let autoToggle = this.props.autoToggle;
-    // console.log(autoToggle)//false
-    if (typeof autoToggle === Number) {
-      setTimeout(this.toggle, this.props.autoToggle);
-    }
+    this.autoToggle();
   }
 
   toggle = () => {
@@ -109,7 +115,7 @@ class Banner extends Component {
     //`${this.state.bannerClass} 123`>>${在裡面運算}
     let transition = this.props.transition ? "transition" : "";
     console.log("openAtStart=", this.state.atStart);
-    const { bannerClass, addedClass } = this.state;
+    const { bannerClass, addedClass, atStart } = this.state;
     return (
       <div
         className={`banner ${transition} ${bannerClass[this.state.atStart]} ${
@@ -129,7 +135,7 @@ class Banner extends Component {
           className={`btn ${this.props.class}`}
           onClick={this.toggle}
           btnText={
-            this.state.atStart === 0 || this.state.atStart === 3
+            atStart === 0 || atStart === 3
               ? this.props.button.openText
               : this.props.button.closeText
           }
