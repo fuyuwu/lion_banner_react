@@ -1,0 +1,76 @@
+.banner {
+  max-width: 1200px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+.banner > .wrap {
+  width: 1200px;
+  height: 100%;
+  display: block;
+  position: absolute;
+}
+
+.banner .btn {
+  line-height: 23px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  border-radius: 5px 0 0 0;
+  border-style: solid;
+  border-color: #aaa transparent transparent;
+  font-size: 13px;
+  text-align: center;
+  padding: 2px 2px 2px 8px;
+  color: rgba(255, 255, 255, 0.8);
+  background: black;
+  cursor: pointer;
+}
+
+.banner .btn:hover {
+  color: #ffffff;
+}
+
+.banner .btn:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin: 3px;
+  border-style: solid;
+}
+
+.opened,
+.opening {
+  height: 300px;
+}
+
+.closed > .wrap {
+  top: -300px;
+}
+
+.closed,
+.closing {
+  height: 40px;
+}
+
+.transition {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.opened .btn:after,
+.opening .btn:after {
+  border-width: 0 5px 5px;
+  border-color: transparent transparent #aaa;
+}
+
+.closed .btn:after,
+.closing .btn:after {
+  border-width: 5px 5px 0;
+  border-color: #aaa transparent transparent;
+}
+/*# sourceMappingURL=App.css.map */
