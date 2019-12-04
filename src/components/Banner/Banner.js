@@ -116,15 +116,12 @@ class Banner extends Component {
   render() {
     console.log("props", this.props);
     // console.log('bannerClass', this.state.bannerClass)//["closed", "opening", "opened", "closing"]
-    //`${this.state.bannerClass} 123`>>${在裡面運算}
     let transition = this.props.transition ? "transition" : "";
     console.log("openAtStart=", this.state.atStart);
     const { bannerClass, addedClass, atStart } = this.state;
     return (
       <div
-        className={`banner ${transition} ${bannerClass[this.state.atStart]} ${
-          addedClass[this.state.atStart]
-        }`}
+        className={`banner ${transition} ${bannerClass[atStart]} ${addedClass[atStart]}`}
       >
         <a className="wrap" href="#">
           <img

@@ -11,7 +11,6 @@ class Button extends Component {
   }
 
   render() {
-    // console.log('btnText', this.props.btnText)//收合
     const { btnName, btnText } = this.props;
     return (
       <div className={btnName} onClick={this.props.onClick}>
