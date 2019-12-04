@@ -3,6 +3,30 @@ import Banner from "../Banner/Banner";
 import "./App.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
+  banner = Element => {
+    console.log("安安");
+    switch (Element) {
+      case "open": {
+        this.myRef.current.open();
+        break;
+      }
+      case "close": {
+        this.myRef.current.close();
+        break;
+      }
+      case "toggle": {
+        this.myRef.current.toggle();
+        break;
+      }
+      default:
+        console.error();
+    }
+  };
+
   render() {
     return (
       <Banner
@@ -23,6 +47,7 @@ class App extends Component {
         whentransition={function() {
           console.log("whenTransition");
         }}
+        ref={this.myRef}
       />
     );
   }
