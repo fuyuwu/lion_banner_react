@@ -59,6 +59,10 @@ class Banner extends Component {
       setTimeout(() => {
         this.toggle();
       }, autoToggle);
+    } else if (autoToggle === true) {
+      setTimeout(() => {
+        this.toggle();
+      }, 2000);
     }
   };
 
