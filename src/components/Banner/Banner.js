@@ -135,9 +135,7 @@ class Banner extends Component {
               ? this.props.button.openText
               : this.props.button.closeText
           }
-        >
-          {`btnText ${this.props.btnText}`}
-        </Button>
+        ></Button>
         {/* 在組件的方法中使用屬性物件,使用this.props取得物件屬性 */}
       </div>
     );
