@@ -66,10 +66,6 @@ class Banner extends Component {
     }
   };
 
-  componentWillUnmount() {
-    clearTimeout(this.whenTrans);
-  }
-
   //設定autoToggle
   componentDidMount() {
     this.autoToggle();
