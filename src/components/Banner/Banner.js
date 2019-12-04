@@ -129,7 +129,6 @@ class Banner extends Component {
         </a>
         <Button
           btnName={this.props.button.class}
-          className={`btn ${this.props.class}`}
           onClick={this.toggle}
           btnText={
             atStart === 0 || atStart === 3
