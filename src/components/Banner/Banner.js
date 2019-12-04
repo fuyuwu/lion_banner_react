@@ -88,7 +88,7 @@ class Banner extends Component {
         this.setState({ atStart: this.state.atStart + 1 });
       }
     } else {
-      this.setState({ atStart: 0 }); //更新原本狀態
+      this.setState({ atStart: 0 }); //更新state狀態值
     }
   };
 
@@ -100,7 +100,7 @@ class Banner extends Component {
         this.setState({ atStart: this.state.atStart + 1 });
       }
     } else {
-      this.setState({ atStart: 2 }); //更新原本狀態
+      this.setState({ atStart: 2 }); //更新state狀態值
     }
   };
 
