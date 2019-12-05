@@ -52,8 +52,10 @@ class Banner extends Component {
     }, this.state.transTimes);
   };
 
-  autoToggle = () => {
-    let autoToggle = this.props.autoToggle;
+  //設定autoToggle
+  //加入DOM tree中後， componentDidMount() 會馬上被呼叫
+  componentDidMount() {
+    const { autoToggle } = this.props;
     console.log(autoToggle);
     if (typeof autoToggle === "number") {
       setTimeout(() => {
@@ -64,15 +66,10 @@ class Banner extends Component {
         this.toggle();
       }, 2000);
     }
-  };
-
-  //設定autoToggle
-  componentDidMount() {
-    this.autoToggle();
   }
 
   toggle = () => {
-    if (this.state.atStart === 0) {
+    if (this.state.atStart === 2) {
       this.close();
     } else {
       this.open();
@@ -83,24 +80,24 @@ class Banner extends Component {
   open = () => {
     console.log("open");
     if (this.props.transition) {
-      if (this.state.atStart === 2) {
-        this.whenTrans(); //whentransition start
+      if (this.state.atStart === 0) {
         this.setState({ atStart: this.state.atStart + 1 });
+        this.whenTrans(); //whentransition start
       }
     } else {
-      this.setState({ atStart: 0 }); //更新state狀態值
+      this.setState({ atStart: 2 }); //更新state狀態值
     }
   };
 
   close = () => {
     console.log("close");
     if (this.props.transition) {
-      if (this.state.atStart === 0) {
-        this.whenTrans(); //whentransition start
+      if (this.state.atStart === 2) {
         this.setState({ atStart: this.state.atStart + 1 });
+        this.whenTrans(); //whentransition start
       }
     } else {
-      this.setState({ atStart: 2 }); //更新state狀態值
+      this.setState({ atStart: 0 }); //更新state狀態值
     }
   };
 
