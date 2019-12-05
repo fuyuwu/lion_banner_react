@@ -46,6 +46,12 @@ $closeHeight: 40px;
 .opened,
 .opening {
   height: $openHeight;
+  .btn {
+    &:after {
+      border-width: 0 5px 5px;
+      border-color: transparent transparent #aaa;
+    }
+  }
 }
 .closed > .wrap {
   top: -$openHeight;
@@ -54,25 +60,13 @@ $closeHeight: 40px;
 .closed,
 .closing {
   height: $closeHeight;
-}
-.transition {
-  transition: 0.6s;
-}
-.opened,
-.opening {
-  .btn {
-    &:after {
-      border-width: 0 5px 5px;
-      border-color: transparent transparent #aaa;
-    }
-  }
-}
-.closed,
-.closing {
   .btn {
     &:after {
       border-width: 5px 5px 0;
       border-color: #aaa transparent transparent;
     }
   }
+}
+.transition {
+  transition: 0.6s;
 }
