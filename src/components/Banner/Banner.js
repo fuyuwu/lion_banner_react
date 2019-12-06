@@ -37,12 +37,13 @@ class Banner extends Component {
     //注意:由於動作事件和class綁定,一旦更名就會掛,所以要新增一組class來區分!!
   };
 
-  timer = "";
+  timer = ""; //存interval
+  timeout = ""; //存settimeout
   whenTrans = () => {
     this.timer = setInterval(() => {
       this.props.whenTransition();
     }, this.state.transTimes / 30);
-    setTimeout(() => {
+    this.timeout = setTimeout(() => {
       this.clearTimer(this.timer);
       if (this.state.atStart < 3) {
         this.setState({ atStart: this.state.atStart + 1 });
